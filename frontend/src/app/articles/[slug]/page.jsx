@@ -18,7 +18,9 @@ async function getArticle(slug) {
 }
 
 export default async function ArticlePage({ params }) {
-  const article = await getArticle(params.slug);
+  const { slug } = await params;
+  const article = await getArticle(slug);
+  console.log(article);
 
   if (!article) {
     return <p className="text-center text-xl mt-10">Article not found.</p>;
@@ -27,6 +29,12 @@ export default async function ArticlePage({ params }) {
   return (
     <main className="max-w-3xl mx-auto p-4">
       <h1 className="text-3xl font-bold">{article.title}</h1>
+
+      {article.content.map((block, index) => (
+        <p key={index} className="text-lg mb-4">
+          {block.children.map((child, i) => child.text).join(" ")}
+        </p>
+      ))}
     </main>
   );
 }

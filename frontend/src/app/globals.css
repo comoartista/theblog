@@ -126,8 +126,19 @@
   font-weight: 600;
 }
 
-.с-text-description {
+.с-text--description {
   color: #667085;
   font-size: 16px;
   line-height: 24px;
+}
+
+.c-button--tag {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2px 10px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cccfd5;
 }

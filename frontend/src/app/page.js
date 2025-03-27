@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
-  const articles = await getArticles();
-
   return (
     <>
       <Header />
@@ -17,40 +15,61 @@ export default async function Home() {
         </section>
         <section className="container mx-auto px-4">
           <h2 className="с-h2 pt-12 pb-8">Recent blog posts</h2>
-          <div>
-            {articles.map((article) => {
-              const { title, description, slug, coverImage, tags } = article;
-              return (
-                <Link
-                  href={`/articles/${slug}`}
-                  key={article.id}
-                  className="mb-6">
-                  <Image
-                    className="w-full h-auto"
-                    src={`${process.env.NEXT_PUBLIC_API_URL}${coverImage?.url}`}
-                    alt={title}
-                    width={600}
-                    height={400}
-                    priority
-                  />
-                  <h2 className="с-h2 pt-12 py-3">{title}</h2>
-                  <p className="с-text-description">{description}</p>
-
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {tags?.map((tag) => (
-                      <span
-                        key={tag.id}
-                        className="px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded-lg">
-                        {tag.name}
-                      </span>
-                    ))}
-                  </div>
-                </Link>
-              );
-            })}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 justify-between">
+            <div className="">
+              <Articles index={1} flex="flex-col" width="592" height="228" />
+            </div>
+            <div className="flex flex-row md:flex-col gap-8">
+              <Articles index={0} />
+              <Articles index={0} />{" "}
+            </div>
+            <div className="lg:col-span-2 pt-[30px] pb-[30px] w-full">
+              <Articles index={1} width="592" height="246" />
+            </div>
           </div>
         </section>
       </main>
     </>
+  );
+}
+
+export async function Articles({
+  index,
+  flex = "flex-row",
+  width = "600",
+  height = "400",
+}) {
+  const articles = await getArticles();
+  const latestArticles = [...articles]
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+    .slice(0, 4); // Відображення тільки 4 останніх статей
+
+  const article = latestArticles[index]; // Отримуємо статтю за індексом
+
+  return (
+    <Link
+      href={`/articles/${article.slug}`}
+      key={article.id}
+      className={`flex flex-col md:${flex} gap-6`}>
+      <Image
+        className="w-full h-auto object-cover flex-1/2"
+        src={`${process.env.NEXT_PUBLIC_API_URL}${article.coverImage?.url}`}
+        alt={article.title}
+        width={width}
+        height={height}
+        priority
+      />
+      <div>
+        <h2 className="с-h2">{article.title}</h2>
+        <p className="pt-2 pb-6 с-text--description">{article.description}</p>
+        <div className="flex items-center gap-x-2">
+          {article.tags?.map((tag) => (
+            <span className="c-button--tag" key={tag.id}>
+              {tag.name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Link>
   );
 }
