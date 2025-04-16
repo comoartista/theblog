@@ -11,7 +11,7 @@ import { VisuallyHidden } from "react-aria";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center p-4">
+    <nav className="flex justify-between items-center">
       {/* Mobile menu (up to 768px) */}{" "}
       <div className="md:hidden">
         <Sheet>

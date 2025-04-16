@@ -1,6 +1,6 @@
-export default async function getArticles() {
+export default async function fetchPosts() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/articles?populate=*`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/posts?populate=*`,
     {
       headers: {
         Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
