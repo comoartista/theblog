@@ -1,36 +1,32 @@
-import React from "react";
-
 export function PostTags({ tags }) {
-  const colorTags = {
-    design: "#6941C6",
-    research: "#3538CD",
-    presentation: "#C11574",
-    interface: "#C11574",
-    leadership: "#6941C6",
-    "software development": "#027A48",
-    management: "#363F72",
-    product: "#026AA2",
-    frameworks: "#C4320A",
-    tools: "#C11574",
-    saas: "#C01048",
-    "customer success": "#363F72",
+  const tagStyles = {
+    design: { bg: "#F4EBFF", text: "#6941C6" },
+    research: { bg: "#EEF4FF", text: "#3538CD" },
+    presentation: { bg: "#FDF2FA", text: "#C11574" },
+    interface: { bg: "#FDF2FA", text: "#C11574" },
+    leadership: { bg: "#F4EBFF", text: "#6941C6" },
+    "software development": { bg: "#ECFDF3", text: "#027A48" },
+    management: { bg: "#F8F9FC", text: "#363F72" },
+    product: { bg: "#F0F9FF", text: "#026AA2" },
+    frameworks: { bg: "#FFF6ED", text: "#C4320A" },
+    tools: { bg: "#FDF2FA", text: "#C11574" },
+    saas: { bg: "#FFF1F3", text: "#C01048" },
+    "customer success": { bg: "#F8F9FC", text: "#363F72" },
   };
 
   return (
     <>
       {tags?.map((tag) => {
         const tagName = tag.name.toLowerCase().trim();
-        const color = colorTags[tagName];
-        const bgColor = color ? `${color}1A` : "#F0F9FF";
-        const textColor = color || "#026AA2";
+        const style = tagStyles[tagName] || { bg: "#F0F9FF", text: "#026AA2" };
 
         return (
           <span
             key={tag.id}
-            className="c-button--tag "
+            className="c-button--tag"
             style={{
-              backgroundColor: bgColor,
-              color: textColor,
+              backgroundColor: style.bg,
+              color: style.text,
             }}>
             {tag.name}
           </span>

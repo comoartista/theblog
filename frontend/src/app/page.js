@@ -1,7 +1,8 @@
 import AllPosts from "@/components/AllPosts";
 import FeaturedPost from "@/components/FeaturedPost";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import Heading from "@/components/Heading";
 import { formattedPosts } from "@/components/utils/posts";
 import fetchPosts from "@/lib/fetch-data";
 
@@ -13,11 +14,8 @@ export default async function Home() {
     <>
       <Header />
       <main>
-        <section className=" text-7xl font-bold uppercase border-t-2 border-b-2 ">
-          <h1 className="c-container flex justify-center text-7xl lg:text-9xl xl:text-[210px] font-bold uppercase my-2">
-            THE BLOG
-          </h1>
-        </section>
+        <Heading title="THE BLOG" />
+
         <section className="c-container">
           <h2 className="с-h2 pt-12 pb-8">Recent blog posts</h2>
           <div className="grid md:grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8 lg:gap-y-15">

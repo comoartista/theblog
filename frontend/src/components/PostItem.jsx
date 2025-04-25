@@ -7,6 +7,7 @@ import { twMerge } from "tailwind-merge";
 
 export default function PostItem({ post, isFlex = false, isGrid = false }) {
   if (!post) return null;
+  
 
   return (
     <Link
