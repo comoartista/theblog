@@ -11,7 +11,7 @@ export default function Newsletter() {
         {" "}
         <Subscribe />
       </main>
-      <Footer className="" />
+      <Footer />
     </div>
   );
 }

@@ -15,7 +15,6 @@ export default async function Home() {
       <Header />
       <main>
         <Heading title="THE BLOG" />
-
         <section className="c-container">
           <h2 className="с-h2 pt-12 pb-8">Recent blog posts</h2>
           <div className="grid md:grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8 lg:gap-y-15">
