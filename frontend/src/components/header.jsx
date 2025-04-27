@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import ToogleMode from "./toogleMode";
+import ToggleMode from "./ToggleMode";
 import React, { useEffect, useState } from "react";
 
 const MOBILE_NAV_ITEMS = [
@@ -89,7 +89,7 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <ToogleMode />
+          <ToggleMode />
         </div>
 
         {/* Mobile Menu Trigger */}
@@ -100,7 +100,7 @@ export default function Header() {
             onClick={() => setMobileNavOpen(true)}>
             Menu
           </motion.button>
-          <ToogleMode />
+          <ToggleMode />
         </div>
       </motion.nav>
 
