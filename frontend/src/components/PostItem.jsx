@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { PostTags } from "./postTags";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { PostTags } from "./PostTags";
 
 export default function PostItem({ post, isFlex = false, isGrid = false }) {
   if (!post) return null;
