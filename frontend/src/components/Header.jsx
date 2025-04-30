@@ -134,7 +134,7 @@ export default function Header() {
           </motion.ul>
 
           <motion.div variants={fadeInVariant} className="mb-10">
-            <ToogleMode />
+            <ToggleMode />
           </motion.div>
         </motion.div>
       )}

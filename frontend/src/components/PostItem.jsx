@@ -7,7 +7,6 @@ import { PostTags } from "./PostTags";
 
 export default function PostItem({ post, isFlex = false, isGrid = false }) {
   if (!post) return null;
-  
 
   return (
     <Link
@@ -26,8 +25,8 @@ export default function PostItem({ post, isFlex = false, isGrid = false }) {
         <Image
           src={`${process.env.NEXT_PUBLIC_API_URL}${post.image?.url}`}
           alt={post.title}
-          width={320}
-          height={200}
+          width={960}
+          height={600}
           className={`object-cover w-full h-full group-hover:scale-103 group-hover:brightness-75 transition  ease-in`}
         />
       </div>

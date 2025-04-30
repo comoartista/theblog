@@ -39,9 +39,9 @@ export default async function Articles({ params }) {
           <Image
             src={`${process.env.NEXT_PUBLIC_API_URL}${post.image?.url}`}
             alt={post.title}
-            width={320}
-            height={200}
-            className="pt-8 object-cover w-full"
+            width={960}
+            height={600}
+            className="pt-8 object-cover w-full]"
           />
           {post.text?.map((block, index) => {
             if (block.type === "paragraph") {
