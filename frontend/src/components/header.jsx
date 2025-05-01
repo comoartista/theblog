@@ -76,7 +76,7 @@ export default function Header() {
         initial="closed"
         animate={mobileNavOpen ? "opened" : "closed"}
         className="flex justify-between items-center h-[72px] px-10 py-9">
-        <div>John Doe</div>
+        <a href="/">John Doe</a>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-6">
